@@ -41,6 +41,46 @@ activities = {
     }
 }
 
+# Additional activities
+activities.update({
+    "Basketball Team": {
+        "description": "Competitive basketball practices and games",
+        "schedule": "Tuesdays and Thursdays, 4:00 PM - 6:00 PM",
+        "max_participants": 15,
+        "participants": ["liam@mergington.edu"]
+    },
+    "Volleyball Club": {
+        "description": "Recreational and competitive volleyball sessions",
+        "schedule": "Wednesdays, 5:00 PM - 7:00 PM",
+        "max_participants": 12,
+        "participants": ["ava@mergington.edu"]
+    },
+    "Art Club": {
+        "description": "Explore drawing, painting, and mixed media",
+        "schedule": "Mondays, 3:30 PM - 5:00 PM",
+        "max_participants": 20,
+        "participants": ["isabella@mergington.edu"]
+    },
+    "Drama Society": {
+        "description": "Acting, stagecraft, and school productions",
+        "schedule": "Fridays, 4:00 PM - 6:30 PM",
+        "max_participants": 25,
+        "participants": ["noah@mergington.edu"]
+    },
+    "Science Club": {
+        "description": "Hands-on experiments and science fairs",
+        "schedule": "Thursdays, 3:30 PM - 5:00 PM",
+        "max_participants": 18,
+        "participants": ["mia@mergington.edu"]
+    },
+    "Debate Team": {
+        "description": "Competitive debating and public speaking",
+        "schedule": "Wednesdays, 3:30 PM - 5:00 PM",
+        "max_participants": 16,
+        "participants": ["ethan@mergington.edu"]
+    }
+})
+
 
 @app.get("/")
 def root():
@@ -62,6 +102,8 @@ def signup_for_activity(activity_name: str, email: str):
     # Get the specific activity
     activity = activities[activity_name]
 
+    # Validate student is not already signed up
+        
     # Add student
     activity["participants"].append(email)
     return {"message": f"Signed up {email} for {activity_name}"}
